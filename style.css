@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: #1B1339;
+    color: white;
+}
+
+.landing {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Decorative Stars - diamond shapes */
+.star {
+    position: absolute;
+    z-index: 10;
+    transform: rotate(45deg);
+}
+
+/* Star positions - matching original design */
+.star-1 {
+    top: 5%;
+    right: 8%;
+    background: #FFA028;
+    width: 12px;
+    height: 12px;
+}
+
+.star-2 {
+    top: 18%;
+    right: 3%;
+    background: #5BC4F1;
+    width: 9px;
+    height: 9px;
+}
+
+.star-3 {
+    top: 38%;
+    left: 3%;
+    background: #FFA028;
+    width: 16px;
+    height: 16px;
+}
+
+.star-4 {
+    top: 52%;
+    right: 5%;
+    background: #5BC4F1;
+    width: 11px;
+    height: 11px;
+}
+
+.star-5 {
+    top: 58%;
+    right: 2%;
+    background: #FFA028;
+    width: 7px;
+    height: 7px;
+}
+
+/* Logo */
+.logo {
+    position: absolute;
+    top: 3vh;
+    left: 5%;
+    z-index: 5;
+}
+
+.logo img {
+    width: clamp(100px, 32vw, 140px);
+    height: auto;
+}
+
+/* Photo - extends to edges */
+.photo {
+    position: absolute;
+    top: -3%;
+    left: -8%;
+    right: -8%;
+    height: 68%;
+    z-index: 1;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center top;
+}
+
+/* Content */
+.content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 6% 4vh;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.badge {
+    background-color: #FFA028;
+    color: #1a1a1a;
+    font-size: clamp(11px, 3vw, 14px);
+    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: 30px;
+    letter-spacing: 0.06em;
+    margin-bottom: 2.5vh;
+    margin-top: -3vh;
+    text-transform: uppercase;
+}
+
+.title {
+    font-size: clamp(26px, 7.5vw, 38px);
+    font-weight: 800;
+    text-align: left;
+    line-height: 1.12;
+    margin-bottom: 2vh;
+}
+
+.description {
+    font-size: clamp(14px, 4vw, 18px);
+    font-weight: 400;
+    text-align: left;
+    line-height: 1.45;
+    opacity: 0.95;
+    margin-bottom: 3vh;
+}
+
+.cta-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #FB4469;
+    color: white;
+    text-decoration: none;
+    font-size: clamp(16px, 4.5vw, 22px);
+    font-weight: 700;
+    padding: 18px 30px;
+    border-radius: 50px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: transform 0.2s ease;
+}
+
+.cta-button:active {
+    transform: scale(0.98);
+}
+
+/* Small phones (iPhone SE) */
+@media screen and (max-height: 700px) {
+    .logo img {
+        width: clamp(80px, 26vw, 110px);
+    }
+    
+    .photo {
+        height: 58%;
+    }
+    
+    .content {
+        padding: 0 5% 3vh;
+    }
+    
+    .badge {
+        padding: 8px 20px;
+        margin-bottom: 2vh;
+        margin-top: -2vh;
+        font-size: clamp(10px, 2.7vw, 12px);
+    }
+    
+    .title {
+        margin-bottom: 1.5vh;
+        font-size: clamp(22px, 6.5vw, 30px);
+    }
+    
+    .description {
+        font-size: clamp(12px, 3.5vw, 15px);
+        line-height: 1.4;
+        margin-bottom: 2vh;
+    }
+    
+    .cta-button {
+        padding: 14px 24px;
+        font-size: clamp(14px, 4vw, 18px);
+    }
+}
+
+/* Medium phones */
+@media screen and (min-height: 701px) and (max-height: 800px) {
+    .photo {
+        height: 62%;
+    }
+}
+
+/* Large phones (Pro Max) */
+@media screen and (min-height: 850px) {
+    .logo {
+        top: 4vh;
+    }
+    
+    .photo {
+        height: 68%;
+    }
+    
+    .content {
+        padding: 0 6% 5vh;
+    }
+    
+    .badge {
+        margin-bottom: 3vh;
+        margin-top: -4vh;
+        padding: 12px 28px;
+    }
+    
+    .title {
+        margin-bottom: 2.5vh;
+    }
+    
+    .description {
+        margin-bottom: 4vh;
+    }
+    
+    .cta-button {
+        padding: 20px 35px;
+    }
+}
+
+/* Safe areas for notched phones */
+@supports (padding-top: env(safe-area-inset-top)) {
+    .logo {
+        top: max(3vh, env(safe-area-inset-top));
+    }
+    
+    .content {
+        padding-bottom: max(4vh, env(safe-area-inset-bottom));
+    }
+}
